@@ -1,0 +1,383 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:mc/global/custom_assets/assets.gen.dart';
+import 'package:mc/routes/approutes.dart';
+import 'package:mc/utils/app_colors.dart';
+import 'package:mc/views/widgets/cachanetwork_image.dart';
+import 'package:mc/views/widgets/custom_button.dart';
+import 'package:mc/views/widgets/custom_text.dart';
+
+class MerchandiserHomeScreen extends StatefulWidget {
+  const MerchandiserHomeScreen({super.key});
+
+  @override
+  State<MerchandiserHomeScreen> createState() => _MerchandiserHomeScreenState();
+}
+
+class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xffFAFAFA),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+        
+        
+        
+            Container(
+              padding: EdgeInsets.only(top: 60.h, bottom: 20.h, left: 20.w, right: 20.w),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(image: AssetImage("assets/images/homeScreenBg.png"), fit: BoxFit.cover)
+              ),
+              child: Row(
+                children: [
+        
+        
+                  CustomNetworkImage(imageUrl: "https://randomuser.me/api/portraits/women/1.jpg", height: 50.h, width: 50.w, boxShape: BoxShape.circle),
+
+                  SizedBox(width: 12.w),
+        
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+        
+                      CustomText(text: "Welcome!", color: Colors.white, fontSize: 12.h),
+                      CustomText(text: "Sagor Ahamed", color: Colors.white),
+        
+                    ],
+                  ),
+
+
+                  Spacer(),
+
+
+                  Icon(Icons.notifications, color: Colors.white),
+
+        
+        
+                ],
+              ),
+            ),
+        
+        
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20.w),
+              child: Column(
+                children: [
+              
+              
+              
+              
+                  SizedBox(height: 20.h),
+              
+                  Container(
+              
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                       boxShadow: [
+                         BoxShadow(
+                           color: Colors.grey.shade400,
+                           blurRadius: 1.5,
+                           offset: Offset(0.5, 0.5)
+                         )
+                       ],
+                      borderRadius: BorderRadius.circular(8.r)
+                    ),
+              
+                    child: Padding(
+                      padding:  EdgeInsets.all(20.r),
+                      child: Row(
+                        children: [
+              
+                          Assets.icons.messageIcon.svg(),
+              
+                          SizedBox(width: 10.w),
+              
+              
+                          CustomText(text: "Reads Updates", fontSize: 16.h)
+              
+              
+              
+                        ],
+                      ),
+                    ),
+                  ),
+              
+              
+                  SizedBox(height: 10.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+              
+                      CustomText(text: "Recent Schedule", fontWeight: FontWeight.w500),
+              
+                      GestureDetector(
+                          onTap: (){
+                            Get.toNamed(AppRoutes.assignedStoresScreen);
+                          },
+                          child: CustomText(text: "View More", fontSize: 12.h, fontWeight: FontWeight.w500, color: AppColors.primaryColor))
+              
+                    ],
+                  ),
+              
+                  SizedBox(height: 10.h),
+              
+              
+              
+              
+                  Container(
+              
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade400,
+                              blurRadius: 1.5,
+                              offset: const Offset(0.5, 0.5)
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8.r)
+                    ),
+              
+                    child: Padding(
+                      padding:  EdgeInsets.all(10.r),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+              
+              
+                              CustomText(text: "#123456", fontSize: 10.h),
+              
+              
+              
+                              Container(
+                                decoration:  BoxDecoration(
+                                  color: const Color(0xffE7F9FF),
+                                  borderRadius: BorderRadius.circular(100.r)
+                                ),
+                                child: Padding(
+                                  padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                                  child: Center(
+                                    child: CustomText(text: "Upcoming", color: const Color(0xff305CDE), fontSize: 10.h),
+                                  ),
+                                ),
+                              )
+              
+              
+              
+                            ],
+                          ),
+              
+              
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+              
+              
+                              CustomText(text: "Alexandra Store", fontSize: 16.h),
+              
+              
+              
+              
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomText(text: "Start Within:", fontSize: 10.h),
+                                  Row(
+                                    children: [
+                                      CustomText(text: "00:15", fontSize: 10.h, color: AppColors.primaryColor),
+                                      CustomText(text: "min", fontSize: 8.h),
+                                    ],
+                                  ),
+                                ],
+                              )
+              
+              
+                            ],
+                          ),
+              
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+              
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+              
+                                  CustomText(text: "5th North Avenue,Baridhara DOHS", fontSize: 12.h),
+                                  CustomText(text: "Schedule: 08:00AM - 10.00 AM", fontSize: 11.h),
+                                  CustomText(text: "Last Visited: 08/08/25 at 4:30 PM", fontSize: 11.h),
+                                ],
+                              ),
+              
+              
+              
+                              CustomButton(
+                                  width: 90.w,
+                                  height: 30.h,
+                                  borderRadius: 10.r,
+                                  loaderIgnore: true,
+                                  fontSize: 10.h,
+                                  title: "Clock In", onpress: (){})
+              
+                            ],
+                          )
+              
+              
+                        ],
+                      ),
+                    ),
+                  ),
+              
+              
+              
+              
+                  SizedBox(height: 16.h),
+              
+              
+              
+              
+                  Container(
+              
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade400,
+                              blurRadius: 1.5,
+                              offset: const Offset(0.5, 0.5)
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8.r)
+                    ),
+              
+                    child: Padding(
+                      padding:  EdgeInsets.all(20.r),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+              
+              
+              
+                          SizedBox(
+                            width: 280.w,
+                            child: CustomText(
+                              textAlign: TextAlign.center,
+                                maxline: 3,
+                                text: "Did this store receive the previous 2 pallets of delivery?", fontSize: 16.h),
+                          ),
+              
+              
+                          SizedBox(height: 16.h),
+              
+              
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+              
+                              CustomButton(
+                                  width: 90.w,
+                                  height: 30.h,
+                                  borderRadius: 10.r,
+                                  loaderIgnore: true,
+                                  fontSize: 10.h,
+                                  title: "No", onpress: (){}),
+              
+              
+                              SizedBox(width: 16.w),
+              
+              
+                              CustomButton(
+                                  width: 90.w,
+                                  height: 30.h,
+                                  borderRadius: 10.r,
+                                  loaderIgnore: true,
+                                  fontSize: 10.h,
+                                  title: "Yes", onpress: (){})
+              
+              
+                            ],
+                          )
+              
+              
+              
+              
+                        ],
+                      ),
+                    ),
+                  ),
+              
+              
+              
+              
+                  SizedBox(height: 10.h),
+              
+              
+                  Row(
+                    children: [
+                      CustomText(text: "Actions"),
+                      CustomText(text: " (required)", fontSize: 10.h, color: Colors.grey),
+                    ],
+                  ),
+              
+              
+                  ListView.builder(
+                    itemCount: 5,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                    return        Container(
+                      margin: EdgeInsets.only(top: 12.h),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 1.5,
+                                offset: const Offset(0.5, 0.5)
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(8.r)
+                      ),
+              
+                      child: Padding(
+                        padding:  EdgeInsets.all(20.r),
+                        child: Row(
+                          children: [
+              
+                            Assets.icons.place.svg(),
+              
+                            SizedBox(width: 10.w),
+              
+              
+                            CustomText(text: "Place Order", fontSize: 16.h)
+              
+              
+              
+                          ],
+                        ),
+                      ),
+                    );
+                  })
+              
+              
+              
+              
+              
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
