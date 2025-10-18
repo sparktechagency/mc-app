@@ -15,12 +15,24 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/about.svg
+  SvgGenImage get about => const SvgGenImage('assets/icons/about.svg');
+
   /// File path: assets/icons/home_icon.svg
   SvgGenImage get homeIcon => const SvgGenImage('assets/icons/home_icon.svg');
 
   /// File path: assets/icons/home_unselect.svg
   SvgGenImage get homeUnselect =>
       const SvgGenImage('assets/icons/home_unselect.svg');
+
+  /// File path: assets/icons/lock.svg
+  SvgGenImage get lock => const SvgGenImage('assets/icons/lock.svg');
+
+  /// File path: assets/icons/log_out.svg
+  SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
+
+  /// File path: assets/icons/man.svg
+  SvgGenImage get man => const SvgGenImage('assets/icons/man.svg');
 
   /// File path: assets/icons/message_icon.svg
   SvgGenImage get messageIcon =>
@@ -36,6 +48,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/place.svg
   SvgGenImage get place => const SvgGenImage('assets/icons/place.svg');
+
+  /// File path: assets/icons/privacy.svg
+  SvgGenImage get privacy => const SvgGenImage('assets/icons/privacy.svg');
 
   /// File path: assets/icons/profile_select.svg
   SvgGenImage get profileSelect =>
@@ -53,18 +68,32 @@ class $AssetsIconsGen {
   SvgGenImage get scheduleSelect =>
       const SvgGenImage('assets/icons/schedule_select.svg');
 
+  /// File path: assets/icons/setting.svg
+  SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
+
+  /// File path: assets/icons/termsIcons.svg
+  SvgGenImage get termsIcons =>
+      const SvgGenImage('assets/icons/termsIcons.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+        about,
         homeIcon,
         homeUnselect,
+        lock,
+        logOut,
+        man,
         messageIcon,
         orderSelect,
         orderUnselect,
         place,
+        privacy,
         profileSelect,
         profileUnselect,
         scheduleUnselect,
-        scheduleSelect
+        scheduleSelect,
+        setting,
+        termsIcons
       ];
 }
 
@@ -78,12 +107,17 @@ class $AssetsImagesGen {
   AssetGenImage get homeScreenBg =>
       const AssetGenImage('assets/images/homeScreenBg.png');
 
+  /// File path: assets/images/profileBg.png
+  AssetGenImage get profileBg =>
+      const AssetGenImage('assets/images/profileBg.png');
+
   /// File path: assets/images/splash_loading.png
   AssetGenImage get splashLoading =>
       const AssetGenImage('assets/images/splash_loading.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [splash, homeScreenBg, splashLoading];
+  List<AssetGenImage> get values =>
+      [splash, homeScreenBg, profileBg, splashLoading];
 }
 
 class Assets {

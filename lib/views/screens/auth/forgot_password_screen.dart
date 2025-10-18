@@ -49,7 +49,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
           ),
           title: CustomText(
-              text: "Sign In", fontWeight: FontWeight.w500, fontSize: 18.h)),
+              text: "Forgot password", fontWeight: FontWeight.w500, fontSize: 18.h)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Form(

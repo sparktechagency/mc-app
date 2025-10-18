@@ -10,6 +10,9 @@ import '../views/screens/auth/verify_screen.dart';
 import '../views/screens/merchandiser/buttom_nav_bar/merchandiser_bottom_nav_bar.dart';
 import '../views/screens/merchandiser/merchandiser_home/assigned_stores_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
+import '../views/screens/profile/change_password_screen.dart';
+import '../views/screens/profile/privacy_policy_all_screen.dart';
+import '../views/screens/profile/setting_screen.dart';
 
 
 
@@ -22,6 +25,9 @@ class AppRoutes {
   static const String merchandiserHomeScreen = "/MerchandiserHomeScreen";
   static const String merchandiserBottomNavBar = "/MerchandiserBottomNavBar";
   static const String assignedStoresScreen = "/AssignedStoresScreen";
+  static const String settingScreen = "/SettingScreen";
+  static const String changePasswordScreen = "/ChangePasswordScreen";
+  static const String privacyPolicyAllScreen = "/PrivacyPolicyAllScreen";
 
 
 
@@ -34,6 +40,9 @@ class AppRoutes {
     GetPage(name: merchandiserHomeScreen, page: () =>  MerchandiserHomeScreen()),
     GetPage(name: merchandiserBottomNavBar, page: () =>  MerchandiserBottomNavBar()),
     GetPage(name: assignedStoresScreen, page: () =>  AssignedStoresScreen()),
+    GetPage(name: settingScreen, page: () =>  SettingScreen()),
+    GetPage(name: changePasswordScreen, page: () =>  ChangePasswordScreen()),
+    GetPage(name: privacyPolicyAllScreen, page: () =>  PrivacyPolicyAllScreen()),
 
   ];
 }

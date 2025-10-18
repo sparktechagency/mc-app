@@ -4,6 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:mc/views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
 
+import '../../profile/profile_screen.dart';
+import '../merchandiser_history/merchandiser_history_screen.dart';
+import '../merchandiser_schedule/merchandiser_schedule_screen.dart';
+
 class MerchandiserBottomNavBar extends StatefulWidget {
   @override
   _MerchandiserBottomNavBarState createState() => _MerchandiserBottomNavBarState();
@@ -15,9 +19,9 @@ class _MerchandiserBottomNavBarState extends State<MerchandiserBottomNavBar> {
   // List of screens to display based on selected index
   static const List<Widget> _widgetOptions = <Widget>[
     MerchandiserHomeScreen(),
-    Text('Schedule Page'),
-    Text('Order Page'),
-    Text('Profile Page'),
+    MerchandiserScheduleScreen(),
+    MerchandiserHistoryScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
