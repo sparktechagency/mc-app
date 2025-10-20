@@ -13,6 +13,9 @@ import '../views/screens/merchandiser/merchandiser_home/merchandiser_home_screen
 import '../views/screens/profile/change_password_screen.dart';
 import '../views/screens/profile/privacy_policy_all_screen.dart';
 import '../views/screens/profile/setting_screen.dart';
+import '../views/screens/ware_hourse/ware_hourse_bottom_nav/ware_house_bottom_nav_bar.dart';
+import '../views/screens/ware_hourse/ware_house_home/all_order_screen.dart';
+import '../views/screens/ware_hourse/ware_house_pading_order/pick_list_screen.dart';
 
 
 
@@ -28,6 +31,9 @@ class AppRoutes {
   static const String settingScreen = "/SettingScreen";
   static const String changePasswordScreen = "/ChangePasswordScreen";
   static const String privacyPolicyAllScreen = "/PrivacyPolicyAllScreen";
+  static const String wareHouseBottomNavBar = "/WareHouseBottomNavBar";
+  static const String allOrderScreen = "/AllOrderScreen";
+  static const String pickListScreen = "/PickListScreen";
 
 
 
@@ -43,6 +49,9 @@ class AppRoutes {
     GetPage(name: settingScreen, page: () =>  SettingScreen()),
     GetPage(name: changePasswordScreen, page: () =>  ChangePasswordScreen()),
     GetPage(name: privacyPolicyAllScreen, page: () =>  PrivacyPolicyAllScreen()),
+    GetPage(name: wareHouseBottomNavBar, page: () =>  WareHouseBottomNavBar()),
+    GetPage(name: allOrderScreen, page: () =>  AllOrderScreen()),
+    GetPage(name: pickListScreen, page: () =>  PickListScreen()),
 
   ];
 }

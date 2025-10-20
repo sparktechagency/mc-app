@@ -18,6 +18,18 @@ class $AssetsIconsGen {
   /// File path: assets/icons/about.svg
   SvgGenImage get about => const SvgGenImage('assets/icons/about.svg');
 
+  /// File path: assets/icons/average_score.svg
+  SvgGenImage get averageScore =>
+      const SvgGenImage('assets/icons/average_score.svg');
+
+  /// File path: assets/icons/completedIcon.svg
+  SvgGenImage get completedIcon =>
+      const SvgGenImage('assets/icons/completedIcon.svg');
+
+  /// File path: assets/icons/downloadPreviousSales.svg
+  SvgGenImage get downloadPreviousSales =>
+      const SvgGenImage('assets/icons/downloadPreviousSales.svg');
+
   /// File path: assets/icons/home_icon.svg
   SvgGenImage get homeIcon => const SvgGenImage('assets/icons/home_icon.svg');
 
@@ -38,6 +50,10 @@ class $AssetsIconsGen {
   SvgGenImage get messageIcon =>
       const SvgGenImage('assets/icons/message_icon.svg');
 
+  /// File path: assets/icons/missingInvoices.svg
+  SvgGenImage get missingInvoices =>
+      const SvgGenImage('assets/icons/missingInvoices.svg');
+
   /// File path: assets/icons/order_select.svg
   SvgGenImage get orderSelect =>
       const SvgGenImage('assets/icons/order_select.svg');
@@ -46,8 +62,24 @@ class $AssetsIconsGen {
   SvgGenImage get orderUnselect =>
       const SvgGenImage('assets/icons/order_unselect.svg');
 
+  /// File path: assets/icons/panding_icon.svg
+  SvgGenImage get pandingIcon =>
+      const SvgGenImage('assets/icons/panding_icon.svg');
+
+  /// File path: assets/icons/pending_selected.svg
+  SvgGenImage get pendingSelected =>
+      const SvgGenImage('assets/icons/pending_selected.svg');
+
+  /// File path: assets/icons/pending_unselected.svg
+  SvgGenImage get pendingUnselected =>
+      const SvgGenImage('assets/icons/pending_unselected.svg');
+
   /// File path: assets/icons/place.svg
   SvgGenImage get place => const SvgGenImage('assets/icons/place.svg');
+
+  /// File path: assets/icons/placeOrder.svg
+  SvgGenImage get placeOrder =>
+      const SvgGenImage('assets/icons/placeOrder.svg');
 
   /// File path: assets/icons/privacy.svg
   SvgGenImage get privacy => const SvgGenImage('assets/icons/privacy.svg');
@@ -59,6 +91,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/profile_unselect.svg
   SvgGenImage get profileUnselect =>
       const SvgGenImage('assets/icons/profile_unselect.svg');
+
+  /// File path: assets/icons/report.svg
+  SvgGenImage get report => const SvgGenImage('assets/icons/report.svg');
 
   /// File path: assets/icons/scheduleUnselect.svg
   SvgGenImage get scheduleUnselect =>
@@ -75,25 +110,38 @@ class $AssetsIconsGen {
   SvgGenImage get termsIcons =>
       const SvgGenImage('assets/icons/termsIcons.svg');
 
+  /// File path: assets/icons/unit_icon.svg
+  SvgGenImage get unitIcon => const SvgGenImage('assets/icons/unit_icon.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         about,
+        averageScore,
+        completedIcon,
+        downloadPreviousSales,
         homeIcon,
         homeUnselect,
         lock,
         logOut,
         man,
         messageIcon,
+        missingInvoices,
         orderSelect,
         orderUnselect,
+        pandingIcon,
+        pendingSelected,
+        pendingUnselected,
         place,
+        placeOrder,
         privacy,
         profileSelect,
         profileUnselect,
+        report,
         scheduleUnselect,
         scheduleSelect,
         setting,
-        termsIcons
+        termsIcons,
+        unitIcon
       ];
 }
 

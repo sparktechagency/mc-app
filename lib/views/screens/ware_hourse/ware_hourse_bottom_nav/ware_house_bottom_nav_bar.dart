@@ -1,23 +1,28 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:mc/global/custom_assets/assets.gen.dart';
 import 'package:mc/utils/app_colors.dart';
 import 'package:mc/views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
-import '../../profile/profile_screen.dart';
-import '../merchandiser_history/merchandiser_history_screen.dart';
-import '../merchandiser_schedule/merchandiser_schedule_screen.dart';
+import 'package:mc/views/screens/ware_hourse/ware_house_home/ware_house_home_screen.dart';
 
-class MerchandiserBottomNavBar extends StatefulWidget {
+import '../../profile/profile_screen.dart';
+import '../ware_house_pading_order/ware_house_pending_order_screen.dart';
+
+
+class WareHouseBottomNavBar extends StatefulWidget {
   @override
-  _MerchandiserBottomNavBarState createState() => _MerchandiserBottomNavBarState();
+  _WareHouseBottomNavBarState createState() => _WareHouseBottomNavBarState();
 }
 
-class _MerchandiserBottomNavBarState extends State<MerchandiserBottomNavBar> {
+class _WareHouseBottomNavBarState extends State<WareHouseBottomNavBar> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    MerchandiserHomeScreen(),
-    MerchandiserScheduleScreen(),
-    MerchandiserHistoryScreen(),
+    WareHouseHomeScreen(),
+    WareHousePendingOrderScreen(type: "Pending"),
+    WareHousePendingOrderScreen(type: "Completed"),
+
     ProfileScreen(),
   ];
 
@@ -53,8 +58,8 @@ class _MerchandiserBottomNavBarState extends State<MerchandiserBottomNavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildNavItem( _selectedIndex == 0 ? Assets.icons.homeIcon.svg() : Assets.icons.homeUnselect.svg(), "Home", 0),
-              _buildNavItem(_selectedIndex == 1 ? Assets.icons.scheduleSelect.svg() : Assets.icons.scheduleUnselect.svg(), "Schedule", 1),
-              _buildNavItem(_selectedIndex == 2 ? Assets.icons.orderSelect.svg() : Assets.icons.orderUnselect.svg(), "History", 2),
+              _buildNavItem(_selectedIndex == 1 ? Assets.icons.pendingSelected.svg() : Assets.icons.pendingUnselected.svg(), "Pending", 1),
+              _buildNavItem(_selectedIndex == 2 ? Assets.icons.orderSelect.svg() : Assets.icons.orderUnselect.svg(), "Completed", 2),
               _buildNavItem(_selectedIndex == 3 ? Assets.icons.profileSelect.svg() : Assets.icons.profileUnselect.svg(), "Profile", 3),
             ],
           ),

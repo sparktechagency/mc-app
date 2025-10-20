@@ -17,6 +17,26 @@ class MerchandiserHomeScreen extends StatefulWidget {
 }
 
 class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
+
+  List actions  = [
+    {
+      "icon" : Assets.icons.placeOrder.svg(),
+      "title" : "Place Order"
+    },
+    {
+      "icon" : Assets.icons.report.svg(),
+      "title" : "Report"
+    },
+    {
+      "icon" : Assets.icons.missingInvoices.svg(),
+      "title" : "Missing invoices/stickers"
+    },
+    {
+      "icon" : Assets.icons.downloadPreviousSales.svg(),
+      "title" : "Download  previous sales data"
+    }
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -330,7 +350,8 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
               
               
                   ListView.builder(
-                    itemCount: 5,
+                    itemCount: actions.length,
+                    padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
@@ -352,13 +373,13 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                         padding:  EdgeInsets.all(20.r),
                         child: Row(
                           children: [
-              
-                            Assets.icons.place.svg(),
+
+                            actions[index]["icon"],
               
                             SizedBox(width: 10.w),
               
               
-                            CustomText(text: "Place Order", fontSize: 16.h)
+                            CustomText(text: "${actions[index]["title"]}", fontSize: 16.h)
               
               
               
@@ -366,7 +387,11 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                         ),
                       ),
                     );
-                  })
+                  }),
+
+
+
+                  SizedBox(height: 50.h),
               
               
               
