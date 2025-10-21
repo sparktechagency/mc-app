@@ -7,6 +7,8 @@ import '../../views/screens/splash/splash_screen.dart';
 import '../views/screens/auth/login_screen.dart';
 import '../views/screens/auth/reset_password_screen.dart';
 import '../views/screens/auth/verify_screen.dart';
+import '../views/screens/driver/driver_bottom_nav_bar/driver_bottom_nav_bar.dart';
+import '../views/screens/driver/driver_home/delivery_details_screen.dart';
 import '../views/screens/merchandiser/buttom_nav_bar/merchandiser_bottom_nav_bar.dart';
 import '../views/screens/merchandiser/merchandiser_home/assigned_stores_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
@@ -34,6 +36,8 @@ class AppRoutes {
   static const String wareHouseBottomNavBar = "/WareHouseBottomNavBar";
   static const String allOrderScreen = "/AllOrderScreen";
   static const String pickListScreen = "/PickListScreen";
+  static const String driverBottomNavBar = "/DriverBottomNavBar";
+  static const String deliveryDetailsScreen = "/DeliveryDetailsScreen";
 
 
 
@@ -52,6 +56,8 @@ class AppRoutes {
     GetPage(name: wareHouseBottomNavBar, page: () =>  WareHouseBottomNavBar()),
     GetPage(name: allOrderScreen, page: () =>  AllOrderScreen()),
     GetPage(name: pickListScreen, page: () =>  PickListScreen()),
+    GetPage(name: driverBottomNavBar, page: () =>  DriverBottomNavBar()),
+    GetPage(name: deliveryDetailsScreen, page: () =>  DeliveryDetailsScreen()),
 
   ];
 }
