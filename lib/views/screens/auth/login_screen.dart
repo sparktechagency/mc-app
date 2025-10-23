@@ -62,7 +62,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const Spacer(),
             CustomButtonGradiant(title: "SIGN IN", onpress: () {
-              Get.offAllNamed(AppRoutes.driverBottomNavBar);
+              Get.offAllNamed(AppRoutes.merchandiserBottomNavBar);
             }),
             SizedBox(height: 100.h)
           ],

@@ -72,10 +72,14 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                   ),
 
 
-                  Spacer(),
+                  const Spacer(),
 
 
-                  Icon(Icons.notifications, color: Colors.white),
+                   GestureDetector(
+                       onTap: () {
+                         Get.toNamed(AppRoutes.notificationScreen);
+                       },
+                       child: const Icon(Icons.notifications, color: Colors.white)),
 
         
         
@@ -94,35 +98,40 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
               
                   SizedBox(height: 20.h),
               
-                  Container(
-              
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                       boxShadow: [
-                         BoxShadow(
-                           color: Colors.grey.shade400,
-                           blurRadius: 1.5,
-                           offset: Offset(0.5, 0.5)
-                         )
-                       ],
-                      borderRadius: BorderRadius.circular(8.r)
-                    ),
-              
-                    child: Padding(
-                      padding:  EdgeInsets.all(20.r),
-                      child: Row(
-                        children: [
-              
-                          Assets.icons.messageIcon.svg(),
-              
-                          SizedBox(width: 10.w),
-              
-              
-                          CustomText(text: "Reads Updates", fontSize: 16.h)
-              
-              
-              
-                        ],
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.readUpdateScreen);
+                    },
+                    child: Container(
+
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                         boxShadow: [
+                           BoxShadow(
+                             color: Colors.grey.shade400,
+                             blurRadius: 1.5,
+                             offset: const Offset(0.5, 0.5)
+                           )
+                         ],
+                        borderRadius: BorderRadius.circular(8.r)
+                      ),
+
+                      child: Padding(
+                        padding:  EdgeInsets.all(20.r),
+                        child: Row(
+                          children: [
+
+                            Assets.icons.messageIcon.svg(),
+
+                            SizedBox(width: 10.w),
+
+
+                            CustomText(text: "Reads Updates", fontSize: 16.h)
+
+
+
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -355,35 +364,45 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
-                    return        Container(
-                      margin: EdgeInsets.only(top: 12.h),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade400,
-                                blurRadius: 1.5,
-                                offset: const Offset(0.5, 0.5)
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8.r)
-                      ),
-              
-                      child: Padding(
-                        padding:  EdgeInsets.all(20.r),
-                        child: Row(
-                          children: [
+                    return        GestureDetector(
+                      onTap: () {
+                        if(index == 0){
+                          Get.toNamed(AppRoutes.productScreen);
+                        }else if(index == 1){
+                          Get.toNamed(AppRoutes.manageReturnSreen);
+                        }
 
-                            actions[index]["icon"],
-              
-                            SizedBox(width: 10.w),
-              
-              
-                            CustomText(text: "${actions[index]["title"]}", fontSize: 16.h)
-              
-              
-              
-                          ],
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(top: 12.h),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.shade400,
+                                  blurRadius: 1.5,
+                                  offset: const Offset(0.5, 0.5)
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.r)
+                        ),
+
+                        child: Padding(
+                          padding:  EdgeInsets.all(20.r),
+                          child: Row(
+                            children: [
+
+                              actions[index]["icon"],
+
+                              SizedBox(width: 10.w),
+
+
+                              CustomText(text: "${actions[index]["title"]}", fontSize: 16.h)
+
+
+
+                            ],
+                          ),
                         ),
                       ),
                     );

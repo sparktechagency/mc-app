@@ -8,10 +8,15 @@ import '../views/screens/auth/login_screen.dart';
 import '../views/screens/auth/reset_password_screen.dart';
 import '../views/screens/auth/verify_screen.dart';
 import '../views/screens/driver/driver_bottom_nav_bar/driver_bottom_nav_bar.dart';
+import '../views/screens/driver/driver_home/confirmation_screen.dart';
 import '../views/screens/driver/driver_home/delivery_details_screen.dart';
+import '../views/screens/driver/driver_home/manage_return_sreen.dart';
 import '../views/screens/merchandiser/buttom_nav_bar/merchandiser_bottom_nav_bar.dart';
 import '../views/screens/merchandiser/merchandiser_home/assigned_stores_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
+import '../views/screens/merchandiser/merchandiser_home/product_screen.dart';
+import '../views/screens/merchandiser/merchandiser_home/read_update_screen.dart';
+import '../views/screens/notification/notification_screen.dart';
 import '../views/screens/profile/change_password_screen.dart';
 import '../views/screens/profile/privacy_policy_all_screen.dart';
 import '../views/screens/profile/setting_screen.dart';
@@ -38,6 +43,11 @@ class AppRoutes {
   static const String pickListScreen = "/PickListScreen";
   static const String driverBottomNavBar = "/DriverBottomNavBar";
   static const String deliveryDetailsScreen = "/DeliveryDetailsScreen";
+  static const String manageReturnSreen = "/ManageReturnSreen";
+  static const String confirmationScreen = "/ConfirmationScreen";
+  static const String productScreen = "/ProductScreen";
+  static const String notificationScreen = "/NotificationScreen";
+  static const String readUpdateScreen = "/ReadUpdateScreen";
 
 
 
@@ -58,6 +68,11 @@ class AppRoutes {
     GetPage(name: pickListScreen, page: () =>  PickListScreen()),
     GetPage(name: driverBottomNavBar, page: () =>  DriverBottomNavBar()),
     GetPage(name: deliveryDetailsScreen, page: () =>  DeliveryDetailsScreen()),
+    GetPage(name: manageReturnSreen, page: () =>  ManageReturnSreen()),
+    GetPage(name: confirmationScreen, page: () =>  ConfirmationScreen()),
+    GetPage(name: productScreen, page: () =>  ProductScreen()),
+    GetPage(name: notificationScreen, page: () =>  NotificationScreen()),
+    GetPage(name: readUpdateScreen, page: () =>  ReadUpdateScreen()),
 
   ];
 }

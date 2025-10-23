@@ -147,8 +147,8 @@ class ProfileScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w600,
                                   top: 20.h,
                                   bottom: 12.h,
-                                  color: Color(0xff592B00)),
-                              Divider(),
+                                  color: const Color(0xff592B00)),
+                              const Divider(),
                               SizedBox(height: 12.h),
                               CustomText(
                                 maxline: 2,

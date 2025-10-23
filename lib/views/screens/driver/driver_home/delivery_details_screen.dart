@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mc/routes/approutes.dart';
 import 'package:mc/utils/app_colors.dart';
 import 'package:mc/views/widgets/custom_button.dart';
 
@@ -61,7 +62,7 @@ class _DeliveryDetailsScreenState extends State<DeliveryDetailsScreen> {
                 SizedBox(width: 12.w),
                 Expanded(
                     child: CustomButton(
-                        title: "See Direction",
+                        title: "View Invoice",
                         loaderIgnore: true,
                         onpress: () {},
                         color: const Color(0xffC2B067),
@@ -70,9 +71,72 @@ class _DeliveryDetailsScreenState extends State<DeliveryDetailsScreen> {
             ),
 
             SizedBox(height: 16.h),
-            CustomButton(title: "Edit Quantity", onpress: () {}),
+            CustomButton(title: "Edit Quantity", onpress: () {
+              Get.toNamed(AppRoutes.confirmationScreen);
+            }),
             SizedBox(height: 16.h),
-            CustomButton(title: "I Have Arrived", onpress: () {}),
+            CustomButton(title: "I Have Arrived", onpress: () {
+
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CustomText(
+                            text: "Are there any returns",
+                            fontSize: 16.h,
+                            fontWeight: FontWeight.w600,
+                            top: 20.h,
+                            bottom: 12.h,
+                            color: const Color(0xff592B00)),
+                        // const Divider(),
+                        SizedBox(height: 12.h),
+                        CustomText(
+                          maxline: 2,
+                          bottom: 20.h,
+                          text: "",
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: CustomButton(
+                                  height: 50.h,
+                                  title: "Print",
+                                  onpress: () {
+                                    Get.back();
+                                  },
+                                  color: Colors.transparent,
+                                  fontSize: 11.h,
+                                  loaderIgnore: true,
+                                  boderColor: Colors.black,
+                                  titlecolor: Colors.black),
+                            ),
+                            SizedBox(width: 8.w),
+                            Expanded(
+                              flex: 1,
+                              child: CustomButton(
+                                  loading: false,
+                                  loaderIgnore: true,
+                                  height: 50.h,
+                                  title: "Yes",
+                                  onpress: () {
+                                    Get.toNamed(AppRoutes.manageReturnSreen);
+                                  },
+                                  fontSize: 11.h),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+              );
+
+
+            }),
           ],
         ),
       ),
