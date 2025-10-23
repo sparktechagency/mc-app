@@ -1,10 +1,13 @@
 
 
 
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mc/routes/approutes.dart';
+import 'package:mc/utils/app_colors.dart';
 import 'package:mc/views/widgets/cachanetwork_image.dart';
 import 'package:mc/views/widgets/custom_button.dart';
 import 'package:mc/views/widgets/custom_text_field.dart';
@@ -12,12 +15,11 @@ import '../../widgets/custom_text.dart';
 
 
 
-class GeneralInformationScreen extends StatelessWidget {
-   GeneralInformationScreen({super.key});
-  
-  
+class EditInformationScreen extends StatelessWidget {
+  EditInformationScreen({super.key});
+
+
   TextEditingController nameCtrl = TextEditingController();
-  TextEditingController emailCtrl = TextEditingController();
   TextEditingController phoneNumberCtrl = TextEditingController();
 
   @override
@@ -49,27 +51,48 @@ class GeneralInformationScreen extends StatelessWidget {
         child: Column(
           children: [
 
-            
-            CustomNetworkImage(imageUrl: "https://randomuser.me/api/portraits/women/65.jpg", height: 100.h, width: 100.w, boxShape: BoxShape.circle),
-            
-            
+
+            SizedBox(
+              height: 100.h,
+              width: 100.w,
+              child: Stack(
+                children: [
+                  CustomNetworkImage(imageUrl: "https://randomuser.me/api/portraits/women/65.jpg", height: 100.h, width: 100.w, boxShape: BoxShape.circle),
+
+
+                  Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            border: Border.all(color: AppColors.primaryColor),
+                            shape: BoxShape.circle
+                          ),
+
+                          child: Padding(
+                            padding:  EdgeInsets.all(6.r),
+                            child: const Icon(Icons.edit, color: Colors.white),
+                          )))
+                ],
+              ),
+            ),
+
+
 
             SizedBox(height: 45.h),
 
             CustomTextField(controller: nameCtrl, hintText: "name", labelText: "Name"),
-            CustomTextField(controller: emailCtrl, hintText: "email", labelText: "Email"),
             CustomTextField(controller: phoneNumberCtrl, hintText: "number", labelText: "Phone Number"),
-            
-            
-            
-           const Spacer(),
-            
-            
-            CustomButtonGradiant(title: "EDIT INFORMATION", onpress: (){
-              Get.toNamed(AppRoutes.editInformationScreen);
-            }),
 
-            
+
+
+            const Spacer(),
+
+
+            CustomButtonGradiant(title: "EDIT INFORMATION", onpress: (){}),
+
+
             SizedBox(height: 100.h)
 
           ],

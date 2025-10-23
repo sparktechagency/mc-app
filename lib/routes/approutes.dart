@@ -18,6 +18,8 @@ import '../views/screens/merchandiser/merchandiser_home/product_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/read_update_screen.dart';
 import '../views/screens/notification/notification_screen.dart';
 import '../views/screens/profile/change_password_screen.dart';
+import '../views/screens/profile/edit_information_screen.dart';
+import '../views/screens/profile/general_information_screen.dart';
 import '../views/screens/profile/privacy_policy_all_screen.dart';
 import '../views/screens/profile/setting_screen.dart';
 import '../views/screens/ware_hourse/ware_hourse_bottom_nav/ware_house_bottom_nav_bar.dart';
@@ -48,6 +50,8 @@ class AppRoutes {
   static const String productScreen = "/ProductScreen";
   static const String notificationScreen = "/NotificationScreen";
   static const String readUpdateScreen = "/ReadUpdateScreen";
+  static const String generalInformationScreen = "/GeneralInformationScreen";
+  static const String editInformationScreen = "/EditInformationScreen";
 
 
 
@@ -73,6 +77,8 @@ class AppRoutes {
     GetPage(name: productScreen, page: () =>  ProductScreen()),
     GetPage(name: notificationScreen, page: () =>  NotificationScreen()),
     GetPage(name: readUpdateScreen, page: () =>  ReadUpdateScreen()),
+    GetPage(name: generalInformationScreen, page: () =>  GeneralInformationScreen()),
+    GetPage(name: editInformationScreen, page: () =>  EditInformationScreen()),
 
   ];
 }

@@ -62,6 +62,8 @@ class ProfileScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
 
+                    Get.toNamed(AppRoutes.generalInformationScreen);
+
                   },
                   child: Row(
                     children: [
@@ -71,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
 
                       SizedBox(width: 12.w),
 
-                      CustomText(text: "Profile"),
+                      CustomText(text: "General Info"),
 
                      const Spacer(),
 
