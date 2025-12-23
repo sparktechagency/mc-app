@@ -57,8 +57,12 @@ class _WareHouseHomeScreenState extends State<WareHouseHomeScreen> {
                       CustomText(text: "Sagor Ahamed", color: Colors.white),
                     ],
                   ),
-                  Spacer(),
-                  Icon(Icons.notifications, color: Colors.white),
+                  const Spacer(),
+                  GestureDetector(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.notificationScreen);
+                      },
+                      child: const Icon(Icons.notifications, color: Colors.white)),
                 ],
               ),
             ),

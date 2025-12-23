@@ -58,7 +58,11 @@ class _DriverHomeScreenState extends State<DriverHomeScreen> {
                     ],
                   ),
                   Spacer(),
-                  Icon(Icons.notifications, color: Colors.white),
+                  GestureDetector(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.notificationScreen);
+                      },
+                      child: const Icon(Icons.notifications, color: Colors.white)),
                 ],
               ),
             ),

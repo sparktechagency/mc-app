@@ -4,9 +4,13 @@
 
 
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mc/utils/app_colors.dart';
 import 'package:mc/views/widgets/cachanetwork_image.dart';
 import 'package:mc/views/widgets/custom_button.dart';
@@ -15,16 +19,22 @@ import '../../widgets/custom_text.dart';
 
 
 
-class EditInformationScreen extends StatelessWidget {
-  EditInformationScreen({super.key});
+class EditInformationScreen extends StatefulWidget {
+  const EditInformationScreen({super.key});
 
+  @override
+  State<EditInformationScreen> createState() => _EditInformationScreenState();
+}
 
+class _EditInformationScreenState extends State<EditInformationScreen> {
   TextEditingController nameCtrl = TextEditingController();
+
   TextEditingController phoneNumberCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
           leading: GestureDetector(
             onTap: () {
@@ -52,29 +62,40 @@ class EditInformationScreen extends StatelessWidget {
           children: [
 
 
-            SizedBox(
-              height: 100.h,
-              width: 100.w,
-              child: Stack(
-                children: [
-                  CustomNetworkImage(imageUrl: "https://randomuser.me/api/portraits/women/65.jpg", height: 100.h, width: 100.w, boxShape: BoxShape.circle),
+            GestureDetector(
+              onTap: () {
+                showImagePickerOption(context);
+              },
+              child: SizedBox(
+                height: 100.h,
+                width: 100.w,
+                child: Stack(
+                  children: [
+
+                    _image != null ?
+                    CircleAvatar(
+                        radius: 85.r,
+                        backgroundImage: MemoryImage(_image!)) :
+
+                    CustomNetworkImage(imageUrl: "https://randomuser.me/api/portraits/women/65.jpg", height: 100.h, width: 100.w, boxShape: BoxShape.circle),
 
 
-                  Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            border: Border.all(color: AppColors.primaryColor),
-                            shape: BoxShape.circle
-                          ),
+                    Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              border: Border.all(color: AppColors.primaryColor),
+                              shape: BoxShape.circle
+                            ),
 
-                          child: Padding(
-                            padding:  EdgeInsets.all(6.r),
-                            child: const Icon(Icons.edit, color: Colors.white),
-                          )))
-                ],
+                            child: Padding(
+                              padding:  EdgeInsets.all(6.r),
+                              child: const Icon(Icons.edit, color: Colors.white),
+                            )))
+                  ],
+                ),
               ),
             ),
 
@@ -103,46 +124,89 @@ class EditInformationScreen extends StatelessWidget {
   }
 
 
-  Widget _customCard(Widget icon, String title, VoidCallback onTap){
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade400,
-              blurRadius: 1.5,
-              offset: const Offset(0.5, 0.5),
+  //==================================> ShowImagePickerOption Function <===============================
+  void showImagePickerOption(BuildContext context) {
+    showModalBottomSheet(
+        backgroundColor: Colors.white,
+        context: context,
+        builder: (builder) {
+          return Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 6.2,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        _pickImageFromGallery();
+                      },
+                      child: SizedBox(
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.image,
+                              size: 50.w,
+                            ),
+                            CustomText(text: 'Gallery')
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        _pickImageFromCamera();
+                      },
+                      child: SizedBox(
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.camera_alt,
+                              size: 50.w,
+                            ),
+                            CustomText(text: 'Camera')
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-          borderRadius: BorderRadius.circular(8.r),
-        ),
+          );
+        });
+  }
 
+  Uint8List? _image;
 
-        child: Padding(
-          padding:  EdgeInsets.all(13.r),
-          child: Row(
-            children: [
+  File? selectedIMage;
 
+  //==================================> Gallery <===============================
+  Future _pickImageFromGallery() async {
+    final returnImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (returnImage == null) return;
 
-              icon,
+    selectedIMage = File(returnImage.path);
+    _image = File(returnImage.path).readAsBytesSync();
+    setState(() {
+    });
+    Get.back();
+  }
 
-              SizedBox(width: 12.w),
+//==================================> Camera <===============================
+  Future _pickImageFromCamera() async {
+    final returnImage =
+    await ImagePicker().pickImage(source: ImageSource.camera);
+    if (returnImage == null) return;
 
-              CustomText(text: "${title}"),
-
-              const Spacer(),
-
-
-              const Icon(Icons.arrow_right)
-
-
-            ],
-          ),
-        ),
-      ),
-    );
+    Get.back();
+    selectedIMage = File(returnImage.path);
+    _image = File(returnImage.path).readAsBytesSync();
+    setState(() {});
 
   }
 }

@@ -23,6 +23,7 @@ class GeneralInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
           leading: GestureDetector(
             onTap: () {
@@ -56,9 +57,9 @@ class GeneralInformationScreen extends StatelessWidget {
 
             SizedBox(height: 45.h),
 
-            CustomTextField(controller: nameCtrl, hintText: "name", labelText: "Name"),
-            CustomTextField(controller: emailCtrl, hintText: "email", labelText: "Email"),
-            CustomTextField(controller: phoneNumberCtrl, hintText: "number", labelText: "Phone Number"),
+            CustomTextField(controller: nameCtrl, hintText: "name", labelText: "Name", readOnly: true),
+            CustomTextField(controller: emailCtrl, hintText: "email", labelText: "Email", readOnly: true),
+            CustomTextField(controller: phoneNumberCtrl, hintText: "number", labelText: "Phone Number", readOnly: true),
             
             
             
