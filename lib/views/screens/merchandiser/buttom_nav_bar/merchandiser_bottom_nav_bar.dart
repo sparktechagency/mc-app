@@ -31,32 +31,34 @@ class _MerchandiserBottomNavBarState extends State<MerchandiserBottomNavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: Container(
-        height: 75,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 5,
-              offset: Offset(0, -3),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          height: 75,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildNavItem( _selectedIndex == 0 ? Assets.icons.homeIcon.svg() : Assets.icons.homeUnselect.svg(), "Home", 0),
-              _buildNavItem(_selectedIndex == 1 ? Assets.icons.scheduleSelect.svg() : Assets.icons.scheduleUnselect.svg(), "Schedule", 1),
-              _buildNavItem(_selectedIndex == 2 ? Assets.icons.orderSelect.svg() : Assets.icons.orderUnselect.svg(), "History", 2),
-              _buildNavItem(_selectedIndex == 3 ? Assets.icons.profileSelect.svg() : Assets.icons.profileUnselect.svg(), "Profile", 3),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 5,
+                offset: Offset(0, -3),
+              ),
             ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildNavItem( _selectedIndex == 0 ? Assets.icons.homeIcon.svg() : Assets.icons.homeUnselect.svg(), "Home", 0),
+                _buildNavItem(_selectedIndex == 1 ? Assets.icons.scheduleSelect.svg() : Assets.icons.scheduleUnselect.svg(), "Schedule", 1),
+                _buildNavItem(_selectedIndex == 2 ? Assets.icons.orderSelect.svg() : Assets.icons.orderUnselect.svg(), "History", 2),
+                _buildNavItem(_selectedIndex == 3 ? Assets.icons.profileSelect.svg() : Assets.icons.profileUnselect.svg(), "Profile", 3),
+              ],
+            ),
           ),
         ),
       ),
