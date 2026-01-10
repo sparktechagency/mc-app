@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mc/routes/approutes.dart';
 import 'package:mc/views/widgets/cachanetwork_image.dart';
 import 'package:mc/views/widgets/custom_button.dart';
 import 'package:mc/views/widgets/custom_text.dart';
@@ -40,11 +41,21 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
 
 
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
+      floatingActionButton: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 16.w),
+        child: CustomButtonGradiant(title: "PLACE ORDER", onpress: (){
+
+          Get.toNamed(AppRoutes.confirmOrderScreen);
+
+        }),
+      ),
 
 
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,30 +86,21 @@ class _ProductScreenState extends State<ProductScreen> {
           
           
           
-              Stack(
-                children: [
-                  ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: products.length,
-                    itemBuilder: (context, index) {
-                      final product = products[index];
-                      return ProductCard(product: product);
-                    },
-                  ),
-          
-          
-                  Positioned(
-                    // padding:  EdgeInsets.only(top: 450.h),
-                    bottom: 100,
-                    child: CustomButtonGradiant(title: "PLACE ORDER", onpress: (){}),
-                  )
-                ],
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.only(bottom: 70.h, top: 4.h),
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    final product = products[index];
+                    return ProductCard(product: product);
+                  },
+                ),
               ),
           
           
           
-          
+        
           
           
             ],
@@ -158,6 +160,7 @@ class ProductCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: Colors.grey),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -167,7 +170,7 @@ class ProductCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(8.w),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -175,7 +178,7 @@ class ProductCard extends StatelessWidget {
             CustomNetworkImage(
               imageUrl: product.imageUrl,
               width: 121.w,
-              height: 161.h,
+              height: 150.h,
               borderRadius: BorderRadius.circular(8.r),
             ),
             SizedBox(width: 16.w),
@@ -186,11 +189,20 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Product Name
-                  CustomText(
-                    text: product.name,
-                    fontSize: 18.sp
+                  Row(
+                    children: [
+                      CustomText(
+                        text: product.name,
+                        fontSize: 18.sp
+                      ),
+
+                      const Spacer(),
+
+
+                      const Radio(value: true)
+
+                    ],
                   ),
-                  SizedBox(height: 8.h),
 
                   // Price
                   CustomText(
@@ -213,15 +225,16 @@ class ProductCard extends StatelessWidget {
                   ),
 
 
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 4.h),
 
                   SizedBox(
-                    height: 35.h,
+                    height: 32.h,
                     child: TextField(
                       keyboardType: TextInputType.number,
                       style: TextStyle(fontSize: 13.h),
                       decoration: InputDecoration(
-                        hintText: "Quantity",
+                        contentPadding: EdgeInsets.symmetric(horizontal: 12.w),
+                        hintText: "Type here....",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.r)), // <-- Border radius
                         ),

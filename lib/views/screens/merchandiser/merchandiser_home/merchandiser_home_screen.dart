@@ -16,6 +16,8 @@ class MerchandiserHomeScreen extends StatefulWidget {
 }
 
 class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
+
+  bool? hasReturns;
   List actions = [
     {"icon": Assets.icons.placeOrder.svg(), "title": "Place Order"},
     {"icon": Assets.icons.report.svg(), "title": "Report"},
@@ -266,7 +268,12 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                                   loaderIgnore: true,
                                   fontSize: 10.h,
                                   title: "Yes",
-                                  onpress: () {})
+                                  onpress: () {
+
+                                    showReturnsDialog();
+
+
+                                  })
                             ],
                           )
                         ],
@@ -294,7 +301,10 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
                             if (index == 0) {
                               Get.toNamed(AppRoutes.productScreen);
                             } else if (index == 1) {
-                              Get.toNamed(AppRoutes.manageReturnSreen);
+                              //
+                              Get.toNamed(AppRoutes.reportScreen);
+                            } else if(index == 2){
+                              Get.toNamed(AppRoutes.missingStickerScreen);
                             }
                           },
                           child: Container(
@@ -330,6 +340,82 @@ class _MerchandiserHomeScreenState extends State<MerchandiserHomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+
+
+
+  void showReturnsDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.r),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.r),
+              color: const Color(0xffFFFFFF),
+            ),
+
+            padding: EdgeInsets.all(24.r),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 24.h),
+                CustomText(
+                  text: "Are there any returns?",
+                  fontSize: 24.h,
+                  fontWeight: FontWeight.w600,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 60.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomButton(
+                      width: 130.w,
+                      height: 40.h,
+                      borderRadius: 10.r,
+                      loaderIgnore: true,
+                      color: const Color(0xffEBEBEB),
+                      boderColor: Colors.transparent,
+                      fontSize: 14.h,
+                      titlecolor: Colors.black,
+                      title: "No",
+                      onpress: () {
+                        setState(() {
+                          hasReturns = false;
+                        });
+                        Get.back();
+                      },
+                    ),
+                    SizedBox(width: 16.w),
+                    CustomButton(
+                      width: 130.w,
+                      height: 40.h,
+                      borderRadius: 10.r,
+                      color: const Color(0xff182E6F),
+                      loaderIgnore: true,
+                      fontSize: 14.h,
+                      title: "Yes",
+                      onpress: () {
+                        setState(() {
+                          hasReturns = true;
+                        });
+                        Get.toNamed(AppRoutes.manageReturnSreen);
+                        // Navigate to returns screen
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

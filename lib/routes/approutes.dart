@@ -13,9 +13,12 @@ import '../views/screens/driver/driver_home/delivery_details_screen.dart';
 import '../views/screens/driver/driver_home/manage_return_sreen.dart';
 import '../views/screens/merchandiser/buttom_nav_bar/merchandiser_bottom_nav_bar.dart';
 import '../views/screens/merchandiser/merchandiser_home/assigned_stores_screen.dart';
+import '../views/screens/merchandiser/merchandiser_home/confirm_order_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/merchandiser_home_screen.dart';
+import '../views/screens/merchandiser/merchandiser_home/missing_sticker_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/product_screen.dart';
 import '../views/screens/merchandiser/merchandiser_home/read_update_screen.dart';
+import '../views/screens/merchandiser/merchandiser_home/report_screen.dart';
 import '../views/screens/notification/notification_screen.dart';
 import '../views/screens/profile/change_password_screen.dart';
 import '../views/screens/profile/edit_information_screen.dart';
@@ -52,6 +55,9 @@ class AppRoutes {
   static const String readUpdateScreen = "/ReadUpdateScreen";
   static const String generalInformationScreen = "/GeneralInformationScreen";
   static const String editInformationScreen = "/EditInformationScreen";
+  static const String missingStickerScreen = "/MissingStickerScreen";
+  static const String reportScreen = "/ReportScreen";
+  static const String confirmOrderScreen = "/ConfirmOrderScreen";
 
 
 
@@ -79,6 +85,9 @@ class AppRoutes {
     GetPage(name: readUpdateScreen, page: () =>  ReadUpdateScreen()),
     GetPage(name: generalInformationScreen, page: () =>  GeneralInformationScreen()),
     GetPage(name: editInformationScreen, page: () =>  EditInformationScreen()),
+    GetPage(name: missingStickerScreen, page: () =>  MissingStickerScreen()),
+    GetPage(name: reportScreen, page: () =>  ReportScreen()),
+    GetPage(name: confirmOrderScreen, page: () =>  ConfirmOrderScreen()),
 
   ];
 }
